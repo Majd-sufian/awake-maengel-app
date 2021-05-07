@@ -5,7 +5,7 @@ import { useStateValue } from "../store/StateProvider";
 
 export default function MoreInfos({ navigation }) {
   const [location, setLocation] = useState({});
-  const [description, setDescription] = useState({});
+  const [description, setDescription] = useState([]);
   const [fotos, setFotos] = useState(
     "https://images.unsplash.com/photo-1557223562-6c77ef16210f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
   );
@@ -34,31 +34,97 @@ export default function MoreInfos({ navigation }) {
     });
 
     alert("We need to use your current location");
-    navigation.navigate("OverView");
+    navigation.navigate("OverView Case");
   }
 
   return (
     <View style={styles.container}>
+      <Text
+        style={{
+          fontSize: 20,
+          fontWeight: 600,
+          textAlign: "center",
+          marginBottom: 5,
+          margin: 10,
+        }}
+      >
+        ADD MORE DESCRIPTION ABOUT THE CASE
+      </Text>
       <TextInput
-        style={styles.input}
+        style={[styles.input, { width: "90%" }]}
         onChangeText={(event) => setDescription(event)}
-        autoFocus={true}
+        numberOfLines={4}
       />
-      <Button title="submit" onPress={addMoreInfos} />
+
+      <View
+        style={{
+          textAlign: "center",
+          backgroundColor: "#FEF4C0",
+          width: "90%",
+          borderRadius: 10,
+          // paddingBottom: 10,
+          // paddingTop: 15,
+          // padding: 35,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: 600,
+            textAlign: "center",
+            margin: 10,
+          }}
+        >
+          Please Notice that your location will be shared!
+        </Text>
+      </View>
+
+      {description.length == 0 ? (
+        <View
+          activeOpacity={1}
+          style={[
+            styles.button,
+            { backgroundColor: "grey", textAlign: "center" },
+          ]}
+        >
+          <Text style={styles.text}>Submit</Text>
+        </View>
+      ) : (
+        <View
+          onClick={addMoreInfos}
+          style={[
+            styles.button,
+            { backgroundColor: "red", textAlign: "center" },
+          ]}
+        >
+          <Text style={styles.text}>Submit</Text>
+        </View>
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
     alignItems: "center",
-    display: "flex",
+    flex: 1,
+    justifyContent: "center",
   },
   input: {
-    height: 40,
+    height: 100,
     margin: 12,
     borderWidth: 1,
     borderRadius: 5,
+  },
+  button: {
+    padding: 16,
+    margin: 16,
+    width: 200,
+    borderRadius: 5,
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 20,
+    color: "white",
   },
 });

@@ -3,7 +3,18 @@ import { StyleSheet, Text, View } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 
-export default function CustomCase({ navigation, done, index }) {
+export default function CustomCase({
+  navigation,
+  done,
+  index,
+  busNumber,
+  busSystem,
+  timestamp,
+}) {
+  const dateObject = new Date(timestamp * 1000);
+
+  const humanDateFormat = dateObject.toLocaleString();
+
   return (
     <>
       <View
@@ -12,7 +23,9 @@ export default function CustomCase({ navigation, done, index }) {
           justifyContent: "space-between",
         }}
       >
-        <Text style={{ fontSize: 25, marginBottom: 10 }}>Case {index + 1}</Text>
+        <Text style={{ fontSize: 25, marginBottom: 10 }}>
+          {index + 1} - Bus {busNumber} - {busSystem}
+        </Text>
         {done ? (
           <Feather
             style={{ textAlign: "center", alignContent: "center " }}
@@ -29,9 +42,7 @@ export default function CustomCase({ navigation, done, index }) {
           />
         )}
       </View>
-      <Text style={{ fontSize: 16 }}>
-        Description ..............................
-      </Text>
+      <Text style={{ fontSize: 16 }}>Date: {humanDateFormat}</Text>
     </>
   );
 }

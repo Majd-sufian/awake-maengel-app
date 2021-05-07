@@ -24,6 +24,7 @@ export default function OverView({ navigation }) {
       {
         id: uuid.v4(),
         busNumber: busNumber,
+        timestamp: Math.round(new Date().getTime() / 1000),
         busSystems: {
           system: selectedSystem,
           position: systemPosition,
@@ -50,22 +51,40 @@ export default function OverView({ navigation }) {
     navigation.navigate("Main");
   };
 
+  console.log(systemPosition);
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Bus number: {busNumber}</Text>
       <Text style={styles.text}>System: {selectedSystem}</Text>
-      <Text style={styles.text}>Position: {systemPosition}</Text>
+      {systemPosition.length > 0 ? (
+        <></>
+      ) : (
+        <Text style={styles.text}>Position: {systemPosition}</Text>
+      )}
       <Text style={styles.text}>Options: {systemOption}</Text>
-      <Text style={styles.text}>
-        Location: {busLocation.long} {busLocation.lat}
-      </Text>
-      <Image
-        style={styles.tinyLogo}
-        source={{
-          uri: caseFotos,
-        }}
-      />
+      <Text style={styles.text}>Address: Am OberwiesendFeld</Text>
+      <Text style={styles.text}>City: Munich</Text>
+      <Text style={styles.text}>State: Bayern</Text>
+      <Text style={styles.text}>Country: Germany</Text>
+      <Text style={styles.text}>Postal Code: 80809</Text>
       <Text style={styles.text}>Description: {caseDescription}</Text>
+      <View style={styles.images}>
+        <Image
+          style={styles.tinyLogo}
+          source={{
+            uri:
+              "https://images.unsplash.com/photo-1564694202883-46e7448c1b26?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+          }}
+        />
+        <Image
+          style={styles.tinyLogo}
+          source={{
+            uri:
+              "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGJ1c3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+          }}
+        />
+      </View>
       <View style={styles.buttonsContainer}>
         <Button color="red" title="Cancel" onPress={CancelCase} />
         <Button title="submit" onPress={sendCase} />
@@ -79,8 +98,8 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   tinyLogo: {
-    width: 50,
-    height: 50,
+    width: 100,
+    height: 100,
   },
   buttonsContainer: {
     display: "flex",
@@ -89,6 +108,11 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
+    marginBottom: 20,
+  },
+  images: {
+    flexDirection: "row",
+    justifyContent: "space-around",
     marginBottom: 20,
   },
 });

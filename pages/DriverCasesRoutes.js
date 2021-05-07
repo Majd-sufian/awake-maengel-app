@@ -13,10 +13,10 @@ const globalScreenOptions = {
 export default function DriverCasesRoutes({ navigation }) {
   return (
     <Stack.Navigator
-      initialRouteName="MyCases"
+      initialRouteName="My Case"
       screenOptions={globalScreenOptions}
     >
-      <Stack.Screen name="MyCases" component={MyCases} />
+      <Stack.Screen name="My Cases" component={MyCases} />
       <Stack.Screen name="SinglePage" component={SinglePage} />
       <Stack.Screen name="PostFeedback" component={PostFeedback} />
     </Stack.Navigator>

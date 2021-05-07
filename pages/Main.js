@@ -29,7 +29,7 @@ export default function Main({ navigation }) {
         style={[styles.button, { backgroundColor: "#2978b5" }]}
       >
         <Text
-          onClick={() => navigation.navigate("Type your Bus Number")}
+          onClick={() => navigation.navigate("Bus Number")}
           style={styles.text}
         >
           Thecknikmeldung

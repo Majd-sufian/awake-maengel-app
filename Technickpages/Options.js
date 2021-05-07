@@ -11,7 +11,7 @@ export default function Options({ navigation }) {
       type: "ADD_Bus_Option",
       option: option,
     });
-    navigation.navigate("MoreInfos");
+    navigation.navigate("Add More Infos");
   }
 
   return (

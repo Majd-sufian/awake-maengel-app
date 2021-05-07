@@ -23,13 +23,13 @@ export default function({ navigation }) {
       screenOptions={globalScreenOptions}
     >
       <Stack.Screen name="Main" component={Main} />
-      <Stack.Screen name="Type your Bus Number" component={BusNumber} />
+      <Stack.Screen name="Bus Number" component={BusNumber} />
       <Stack.Screen name="Please select a system" component={Systems} />
       <Stack.Screen name="Options" component={Options} />
       <Stack.Screen name="Positions" component={Positions} />
       <Stack.Screen name="review case" component={ReviewCase} />
-      <Stack.Screen name="MoreInfos" component={MoreInfos} />
-      <Stack.Screen name="OverView" component={OverView} />
+      <Stack.Screen name="Add More Infos" component={MoreInfos} />
+      <Stack.Screen name="OverView Case" component={OverView} />
       {/* <Stack.Screen name="SinglePage" component={SinglePage} /> */}
     </Stack.Navigator>
   );

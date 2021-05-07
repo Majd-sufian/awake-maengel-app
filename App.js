@@ -12,12 +12,9 @@ export default function App() {
   return (
     <StateProvider initialState={initialState} reducer={reducer}>
       <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Navigator initialRouteName="My Cases">
           <Drawer.Screen name="Home" component={Routes} />
-          <Drawer.Screen
-            name="DriverCasesRoutes"
-            component={DriverCasesRoutes}
-          />
+          <Drawer.Screen name="My Cases" component={DriverCasesRoutes} />
         </Drawer.Navigator>
       </NavigationContainer>
     </StateProvider>
