@@ -33,7 +33,7 @@ export default function OverView({ navigation }) {
         done: false,
         driver: {
           name: "Majd Sufyan",
-          email: "majd@gmail.com",
+          email: "majd2@gmail.com",
         },
         location: {
           lan: busLocation.lat,

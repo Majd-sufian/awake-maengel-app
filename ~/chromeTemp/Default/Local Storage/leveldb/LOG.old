@@ -1,15 +1,3 @@
-2021/04/29-16:58:51.523 2eeb Reusing MANIFEST /home/majdsufian/Desktop/awake/mobile/maengelapp/~/chromeTemp/Default/Local Storage/leveldb/MANIFEST-000001
-2021/04/29-16:58:51.523 2eeb Recovering log #16
-2021/04/29-16:58:51.527 2eeb Reusing old log /home/majdsufian/Desktop/awake/mobile/maengelapp/~/chromeTemp/Default/Local Storage/leveldb/000016.log 
-2021/04/29-17:08:41.782 331f Level-0 table #20: started
-2021/04/29-17:08:41.790 331f Level-0 table #20: 12938 bytes OK
-2021/04/29-17:08:41.797 331f Delete type=0 #16
-2021/04/29-17:08:41.799 331f Compacting 4@0 + 1@1 files
-2021/04/29-17:08:41.807 331f Generated table #21@0: 99 keys, 9828 bytes
-2021/04/29-17:08:41.807 331f Compacted 4@0 + 1@1 files => 9828 bytes
-2021/04/29-17:08:41.812 331f compacted to: files[ 0 1 1 0 0 0 0 ]
-2021/04/29-17:08:41.812 331f Delete type=2 #11
-2021/04/29-17:08:41.812 331f Delete type=2 #14
-2021/04/29-17:08:41.812 331f Delete type=2 #20
-2021/04/29-17:08:41.812 331f Delete type=2 #8
-2021/04/29-17:08:41.812 331f Delete type=2 #17
+2021/05/06-13:11:35.194 57ca Reusing MANIFEST /home/majdsufian/Desktop/awake/mobile/maengelapp/~/chromeTemp/Default/Local Storage/leveldb/MANIFEST-000001
+2021/05/06-13:11:35.194 57ca Recovering log #19
+2021/05/06-13:11:35.195 57ca Reusing old log /home/majdsufian/Desktop/awake/mobile/maengelapp/~/chromeTemp/Default/Local Storage/leveldb/000019.log 

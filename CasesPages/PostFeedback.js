@@ -12,7 +12,7 @@ export default function PostFeedback({ navigation, route }) {
       feedback: feedback,
       sender: {
         email: "workshop@gmail.com",
-        username: "workshop",
+        username: "Majd",
       },
       timestamp: "1619707512",
     });
