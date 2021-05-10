@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Main from "./Main";
+import Login from "./Login";
 import BusNumber from "../Technickpages/BusNumber";
 import Systems from "../Technickpages/Systems";
 import Options from "../Technickpages/Options";
@@ -20,10 +21,11 @@ const globalScreenOptions = {
 export default function ({ navigation }) {
   return (
     <Stack.Navigator
-      initialRouteName="Main"
+      initialRouteName="Login"
       screenOptions={globalScreenOptions}
     >
       <Stack.Screen name="Main" component={Main} />
+      <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Bus Number" component={BusNumber} />
       <Stack.Screen name="Bitte wählen Sie ein System" component={Systems} />
       <Stack.Screen name="Optionen" component={Options} />

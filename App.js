@@ -20,5 +20,3 @@ export default function App() {
     </StateProvider>
   );
 }
-
-// export default withAuthenticator(App);
