@@ -39,7 +39,12 @@ export default function Main({ navigation }) {
         activeOpacity={1}
         style={[styles.button, { backgroundColor: "red" }]}
       >
-        <Text style={styles.text}>Unfallmeldung</Text>
+        <Text
+          onClick={() => navigation.navigate("UnfallMeldung")}
+          style={styles.text}
+        >
+          Unfallmeldung
+        </Text>
       </View>
     </SafeAreaView>
   );

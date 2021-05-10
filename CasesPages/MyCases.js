@@ -44,7 +44,6 @@ export default function MyCases({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* header */}
       {userCases.length > 0 ? (
         userCases.map((singleCase, index) => (
           <View

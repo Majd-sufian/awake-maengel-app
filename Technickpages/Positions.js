@@ -11,14 +11,14 @@ export default function Positions({ navigation }) {
       type: "ADD_Bus_Position",
       position: position,
     });
-    navigation.navigate("Options");
+    navigation.navigate("Optionen");
   }
 
   return (
     <View style={styles.container}>
       {busSystem["positions"].map((position, index) => (
         <View key={index} onClick={() => addBusPosition(position)}>
-          <CustomButton title={position} />
+          <CustomButton color="#7eca9c" title={position} />
         </View>
       ))}
     </View>

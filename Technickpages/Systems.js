@@ -32,9 +32,9 @@ export default function Systems({ navigation }) {
     });
 
     if (sub) {
-      navigation.navigate("Positions");
+      navigation.navigate("Positionen");
     } else {
-      navigation.navigate("Options");
+      navigation.navigate("Optionen");
     }
   };
 
@@ -47,7 +47,11 @@ export default function Systems({ navigation }) {
       <ScrollView>
         {busSystems.map((system, index) => (
           <View activeOpacity={1} key={index} onClick={addBusSystem}>
-            <CustomButton onClick={addBusSystem} title={system} />
+            <CustomButton
+              onClick={addBusSystem}
+              title={system}
+              color="#7eca9c"
+            />
           </View>
         ))}
       </ScrollView>

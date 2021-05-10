@@ -33,7 +33,7 @@ export default function MoreInfos({ navigation }) {
       caseDescription: description,
     });
 
-    alert("We need to use your current location");
+    alert("Bitte beachten Sie, dass Ihr Standort geteilt wird!");
     navigation.navigate("OverView Case");
   }
 
@@ -48,7 +48,7 @@ export default function MoreInfos({ navigation }) {
           margin: 10,
         }}
       >
-        ADD MORE DESCRIPTION ABOUT THE CASE
+        BESCHREIBUNG ÜBER DEN FALL HINZUFÜGEN
       </Text>
       <TextInput
         style={[styles.input, { width: "90%" }]}
@@ -62,9 +62,6 @@ export default function MoreInfos({ navigation }) {
           backgroundColor: "#FEF4C0",
           width: "90%",
           borderRadius: 10,
-          // paddingBottom: 10,
-          // paddingTop: 15,
-          // padding: 35,
         }}
       >
         <Text
@@ -75,7 +72,7 @@ export default function MoreInfos({ navigation }) {
             margin: 10,
           }}
         >
-          Please Notice that your location will be shared!
+          Bitte beachten Sie, dass Ihr Standort geteilt wird!
         </Text>
       </View>
 

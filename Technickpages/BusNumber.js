@@ -11,13 +11,13 @@ export default function BusNumber({ navigation }) {
       type: "ADD_Bus_Num",
       number: num,
     });
-    navigation.navigate("Please select a system");
+    navigation.navigate("Bitte wählen Sie ein System");
   }
 
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 25, textAlign: "center", marginBottom: 20 }}>
-        ADD YOUR BUS NUMBER
+        Fügen Sie die Busnummer hinzu
       </Text>
       <TextInput
         style={[styles.input, { width: "90%" }]}

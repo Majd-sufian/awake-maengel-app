@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function First({ title, key }) {
+export default function CustomButton({ title, key, color }) {
   return (
-    <View style={[styles.button, { backgroundColor: "#7eca9c" }]}>
+    <View style={[styles.button, { backgroundColor: color }]}>
       <Text key={key} style={styles.text}>
         {title}
       </Text>

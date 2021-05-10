@@ -13,29 +13,12 @@ export default function SingleCase({ navigation, route }) {
   const addFeedback = () => {
     navigation.navigate("PostFeedback", {
       item: item,
+      onGoback: () => refresh(),
     });
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Bus number: {item.busNumber}</Text>
-      <Text style={styles.text}>System: {item?.busSystems?.system}</Text>
-      <Text style={styles.text}>Options: {item.busSystems.option}</Text>
-      {item?.busSystems?.position ? (
-        <Text style={styles.text}>Position: {item.busSystems.position}</Text>
-      ) : (
-        <></>
-      )}
-      <Text style={styles.text}>Address: Am OberwiesendFeld</Text>
-      <Text style={styles.text}>City: Munich</Text>
-      <Text style={styles.text}>State: Bayern</Text>
-      <Text style={styles.text}>Country: Germany</Text>
-      <Text style={styles.text}>Postal Code: 80809</Text>
-      {item?.description ? (
-        <Text style={styles.text}>Description: {item.description}</Text>
-      ) : (
-        <></>
-      )}
       {item?.fotos ? (
         <View style={styles.images}>
           <Image
@@ -56,42 +39,67 @@ export default function SingleCase({ navigation, route }) {
       ) : (
         <></>
       )}
+      <Text style={styles.text}>Bus number: {item.busNumber}</Text>
+      <Text style={styles.text}>System: {item?.busSystems?.system}</Text>
+      <Text style={styles.text}>Options: {item.busSystems.option}</Text>
+      {item?.busSystems?.position ? (
+        <Text style={styles.text}>Position: {item.busSystems.position}</Text>
+      ) : (
+        <></>
+      )}
+      <Text style={styles.text}>Address: Am OberwiesendFeld</Text>
+      <Text style={styles.text}>City: Munich</Text>
+      <Text style={styles.text}>State: Bayern</Text>
+      <Text style={styles.text}>Country: Germany</Text>
+      <Text style={styles.text}>Postal Code: 80809</Text>
+      {item?.description ? (
+        <Text style={styles.text}>Description: {item.description}</Text>
+      ) : (
+        <></>
+      )}
 
-      {item?.feedbacks ? <Text>GGGGG</Text> : <></>}
+      <Text style={{ textAlign: "center", fontSize: 35 }}>Feedbacks</Text>
+
+      {item?.feedbacks ? <DisplayFeedbacks item={item} /> : <NoFeedback />}
+      <Text
+        style={{
+          textAlign: "center",
+          fontSize: 25,
+          color: "rebeccapurple",
+          textDecoration: "underline",
+        }}
+        // onClick={addFeedback}
+        onClick={addFeedback}
+      >
+        Add Feedback
+      </Text>
     </View>
   );
 }
 
-// const view = {
-// <Text>------------------------------------------------</Text>
-//   <Text onClick={addFeedback} style={{ fontSize: 30 }}>
-//   Feedbacks:
-// </Text>
-// <View>
-//   {item.feedbacks.map((feedback, index) => (
-//     <View key={index}>
-//       <Text style={{ marginBottom: 10, fontSize: 20 }}>
-//         {feedback.sender.username}: {feedback.feedback}
-//       </Text>
-//     </View>
-//   ))}
-// </View>
-// }
+function NoFeedback() {
+  return (
+    <View style={{ margin: 20, marginBottom: 10 }}>
+      <Text style={{ textAlign: "center", fontSize: 25 }}>
+        There's no Feedbacks Yet
+      </Text>
+    </View>
+  );
+}
 
-// function displayFeedbacks() {
-//   return
-// }
-// const displayFeedbacks = () => {
-//   <View>
-//   {item.feedbacks.map((feedback, index) => (
-//     <View key={index}>
-//       <Text style={{ marginBottom: 10, fontSize: 20 }}>
-//         {feedback.sender.username}: {feedback.feedback}
-//       </Text>
-//     </View>
-//   ))}
-// </View>
-// }
+function DisplayFeedbacks({ item }) {
+  return (
+    <View style={{ marginTop: 5, marginBottom: 10 }}>
+      {item.feedbacks.map((feedback, index) => (
+        <View key={index}>
+          <Text style={{ marginBottom: 10, fontSize: 20 }}>
+            {feedback.sender.username}: {feedback.feedback}
+          </Text>
+        </View>
+      ))}
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -107,7 +115,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
   },
   text: {
-    fontSize: 20,
+    fontSize: 22,
     marginBottom: 20,
   },
   images: {

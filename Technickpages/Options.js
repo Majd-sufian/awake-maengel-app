@@ -18,7 +18,7 @@ export default function Options({ navigation }) {
     <View style={styles.container}>
       {busSystem["options"].map((option, index) => (
         <View key={index} onClick={() => addBusOption(option)}>
-          <CustomButton title={option} />
+          <CustomButton title={option} color="#7eca9c" />
         </View>
       ))}
     </View>
