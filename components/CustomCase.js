@@ -6,7 +6,7 @@ import { Feather } from "@expo/vector-icons";
 export default function CustomCase({
   navigation,
   done,
-  index,
+  caseNumber,
   busNumber,
   busSystem,
   timestamp,
@@ -24,7 +24,7 @@ export default function CustomCase({
         }}
       >
         <Text style={{ fontSize: 25, marginBottom: 10 }}>
-          {index + 1} - Bus {busNumber} - {busSystem}
+          {caseNumber} - Bus {busNumber} - {busSystem}
         </Text>
         {done ? (
           <Feather
@@ -42,7 +42,7 @@ export default function CustomCase({
           />
         )}
       </View>
-      <Text style={{ fontSize: 16 }}>Date: {humanDateFormat}</Text>
+      <Text style={{ fontSize: 16 }}>Datum: {humanDateFormat}</Text>
     </>
   );
 }

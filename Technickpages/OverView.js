@@ -1,30 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Button, Image } from "react-native";
-import { useStateValue } from "../store/StateProvider";
 import BusNumber from "./BusNumber";
 import axios from "axios";
 import uuid from "react-native-uuid";
 
-export default function OverView({ navigation }) {
-  const [
-    {
-      busNumber,
-      selectedSystem,
-      systemOption,
-      systemPosition,
-      busLocation,
-      caseFotos,
-      caseDescription,
-    },
-  ] = useStateValue();
+export default function OverView({ navigation, route }) {
+  const {
+    busNumber,
+    busSystem,
+    position,
+    option,
+    location,
+    description,
+  } = route.params;
+
+  const [casesCount, setCasesCount] = useState();
+
+  useEffect(() => {
+    axios
+      .get("https://cok1u6cvtf.execute-api.eu-central-1.amazonaws.com/items")
+      .then((resp) => {
+        setCasesCount(resp.data.Count);
+      });
+  }, []);
 
   const sendCase = () => {
     axios.put(
-      "https://5brtqhkajh.execute-api.eu-central-1.amazonaws.com/items",
+      "https://cok1u6cvtf.execute-api.eu-central-1.amazonaws.com/items",
       {
         id: uuid.v4(),
         busNumber: busNumber,
         timestamp: Math.round(new Date().getTime() / 1000),
+        caseNumber: casesCount + 1,
         busSystems: {
           system: selectedSystem,
           position: systemPosition,
@@ -40,7 +47,8 @@ export default function OverView({ navigation }) {
           lan: busLocation.lat,
           long: busLocation.long,
         },
-        fotos: caseFotos,
+        fotos:
+          "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGJ1c3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
       }
     );
     alert("Your case was successfully send");
@@ -51,24 +59,22 @@ export default function OverView({ navigation }) {
     navigation.navigate("Main");
   };
 
-  console.log(systemPosition);
-
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Bus number: {busNumber}</Text>
-      <Text style={styles.text}>System: {selectedSystem}</Text>
-      {systemPosition.length > 0 ? (
-        <></>
+      <Text style={styles.text}>System: {busSystem}</Text>
+      {position ? <Text style={styles.text}>Position: {position}</Text> : <></>}
+      {option ? <Text style={styles.text}>Option: {option}</Text> : <></>}
+      <Text style={styles.text}>Straße: Am Oberwiesendfeld 17</Text>
+      <Text style={styles.text}>Stadt: Munich</Text>
+      <Text style={styles.text}>Staat: Bayern</Text>
+      <Text style={styles.text}>Land: Germany</Text>
+      <Text style={styles.text}>Postleitzahl: 80809</Text>
+      {description ? (
+        <Text style={styles.text}>Beschreibung: {description}</Text>
       ) : (
-        <Text style={styles.text}>Position: {systemPosition}</Text>
+        <></>
       )}
-      <Text style={styles.text}>Options: {systemOption}</Text>
-      <Text style={styles.text}>Address: Am OberwiesendFeld</Text>
-      <Text style={styles.text}>City: Munich</Text>
-      <Text style={styles.text}>State: Bayern</Text>
-      <Text style={styles.text}>Country: Germany</Text>
-      <Text style={styles.text}>Postal Code: 80809</Text>
-      <Text style={styles.text}>Description: {caseDescription}</Text>
       <View style={styles.images}>
         <Image
           style={styles.tinyLogo}

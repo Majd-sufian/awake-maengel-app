@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet, TextInput, Button } from "react-native";
 import * as Location from "expo-location";
-import { useStateValue } from "../store/StateProvider";
 
-export default function MoreInfos({ navigation }) {
+export default function MoreInfos({ navigation, route }) {
+  const { busNumber, busSystem, position, option } = route.params;
+
   const [location, setLocation] = useState({});
   const [description, setDescription] = useState([]);
-  const [fotos, setFotos] = useState(
-    "https://images.unsplash.com/photo-1557223562-6c77ef16210f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-  );
-  const [{}, dispatch] = useStateValue();
 
   async function addMoreInfos() {
     let { status } = await Location.requestPermissionsAsync();
@@ -23,18 +20,16 @@ export default function MoreInfos({ navigation }) {
     const { latitude, longitude } = location.coords;
 
     setLocation({ latitude: latitude, longitude: longitude });
-    dispatch({
-      type: "Add_More_Info",
-      location: {
-        lat: latitude,
-        long: longitude,
-      },
-      caseFotos: fotos,
-      caseDescription: description,
-    });
 
     alert("Bitte beachten Sie, dass Ihr Standort geteilt wird!");
-    navigation.navigate("OverView Case");
+    navigation.navigate("OverView Case", {
+      busNumber: busNumber,
+      busSystem: busSystem,
+      position: position,
+      option: option,
+      location: location,
+      description: description,
+    });
   }
 
   return (

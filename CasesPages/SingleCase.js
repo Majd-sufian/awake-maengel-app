@@ -6,16 +6,9 @@ export default function SingleCase({ navigation, route }) {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: `Case ${index + 1}`,
+      title: `Case ${item.caseNumber}`,
     });
   }, [navigation]);
-
-  const addFeedback = () => {
-    navigation.navigate("PostFeedback", {
-      item: item,
-      onGoback: () => refresh(),
-    });
-  };
 
   return (
     <View style={styles.container}>
@@ -47,56 +40,16 @@ export default function SingleCase({ navigation, route }) {
       ) : (
         <></>
       )}
-      <Text style={styles.text}>Address: Am OberwiesendFeld</Text>
-      <Text style={styles.text}>City: Munich</Text>
-      <Text style={styles.text}>State: Bayern</Text>
-      <Text style={styles.text}>Country: Germany</Text>
-      <Text style={styles.text}>Postal Code: 80809</Text>
+      <Text style={styles.text}>Straße: Am Oberwiesendfeld 17</Text>
+      <Text style={styles.text}>Stadt: Munich</Text>
+      <Text style={styles.text}>Staat: Bayern</Text>
+      <Text style={styles.text}>Land: Germany</Text>
+      <Text style={styles.text}>Postleitzahl: 80809</Text>
       {item?.description ? (
-        <Text style={styles.text}>Description: {item.description}</Text>
+        <Text style={styles.text}>Beschreibung: {item.description}</Text>
       ) : (
         <></>
       )}
-
-      <Text style={{ textAlign: "center", fontSize: 35 }}>Feedbacks</Text>
-
-      {item?.feedbacks ? <DisplayFeedbacks item={item} /> : <NoFeedback />}
-      <Text
-        style={{
-          textAlign: "center",
-          fontSize: 25,
-          color: "rebeccapurple",
-          textDecoration: "underline",
-        }}
-        // onClick={addFeedback}
-        onClick={addFeedback}
-      >
-        Add Feedback
-      </Text>
-    </View>
-  );
-}
-
-function NoFeedback() {
-  return (
-    <View style={{ margin: 20, marginBottom: 10 }}>
-      <Text style={{ textAlign: "center", fontSize: 25 }}>
-        There's no Feedbacks Yet
-      </Text>
-    </View>
-  );
-}
-
-function DisplayFeedbacks({ item }) {
-  return (
-    <View style={{ marginTop: 5, marginBottom: 10 }}>
-      {item.feedbacks.map((feedback, index) => (
-        <View key={index}>
-          <Text style={{ marginBottom: 10, fontSize: 20 }}>
-            {feedback.sender.username}: {feedback.feedback}
-          </Text>
-        </View>
-      ))}
     </View>
   );
 }

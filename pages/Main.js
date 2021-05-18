@@ -32,7 +32,7 @@ export default function Main({ navigation }) {
           onClick={() => navigation.navigate("Bus Number")}
           style={styles.text}
         >
-          Thecknikmeldung
+          Tecknikmeldung
         </Text>
       </View>
       <View

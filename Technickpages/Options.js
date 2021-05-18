@@ -1,22 +1,22 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-import { useStateValue } from "../store/StateProvider";
 import CustomButton from "../components/CustomButton";
 
-export default function Options({ navigation }) {
-  const [{ busSystem }, dispatch] = useStateValue();
+export default function Options({ navigation, route }) {
+  const { busNumber, busSystem, systemOptions, position } = route.params;
 
   function addBusOption(option) {
-    dispatch({
-      type: "ADD_Bus_Option",
+    navigation.navigate("Add More Infos", {
+      busNumber: busNumber,
+      busSystem: busSystem,
+      position: position,
       option: option,
     });
-    navigation.navigate("Add More Infos");
   }
 
   return (
     <View style={styles.container}>
-      {busSystem["options"].map((option, index) => (
+      {systemOptions.map((option, index) => (
         <View key={index} onClick={() => addBusOption(option)}>
           <CustomButton title={option} color="#7eca9c" />
         </View>

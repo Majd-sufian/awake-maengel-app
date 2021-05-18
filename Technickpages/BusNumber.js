@@ -1,17 +1,13 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput, View, Text, Button } from "react-native";
-import { useStateValue } from "../store/StateProvider";
+import { StyleSheet, TextInput, View, Text } from "react-native";
 
 export default function BusNumber({ navigation }) {
-  const [{}, dispatch] = useStateValue();
   const [num, setNumber] = useState([]);
 
   function addBusNum() {
-    dispatch({
-      type: "ADD_Bus_Num",
-      number: num,
+    navigation.navigate("Bitte wählen Sie ein System", {
+      busNumber: num,
     });
-    navigation.navigate("Bitte wählen Sie ein System");
   }
 
   return (

@@ -2,7 +2,6 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import MyCases from "../CasesPages/MyCases";
 import SinglePage from "../CasesPages/SingleCase";
-import PostFeedback from "../CasesPages/PostFeedback";
 
 const Stack = createStackNavigator();
 
@@ -18,7 +17,6 @@ export default function DriverCasesRoutes({ navigation }) {
     >
       <Stack.Screen name="My Cases" component={MyCases} />
       <Stack.Screen name="SinglePage" component={SinglePage} />
-      <Stack.Screen name="PostFeedback" component={PostFeedback} />
     </Stack.Navigator>
   );
 }

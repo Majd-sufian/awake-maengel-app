@@ -10,7 +10,7 @@ import ReviewCase from "../Technickpages/OverView";
 import MoreInfos from "../Technickpages/MoreInfos";
 import OverView from "../Technickpages/OverView";
 import UnfallMeldung from "../unfallPages/UnfallMeldung";
-import Unfall from "../unfallPages/MoreInfosUnfallMeldung";
+import MoreInfosUnfallMeldung from "../unfallPages/MoreInfosUnfallMeldung";
 
 const Stack = createStackNavigator();
 
@@ -21,7 +21,7 @@ const globalScreenOptions = {
 export default function ({ navigation }) {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="Main"
       screenOptions={globalScreenOptions}
     >
       <Stack.Screen name="Main" component={Main} />
@@ -34,7 +34,10 @@ export default function ({ navigation }) {
       <Stack.Screen name="Add More Infos" component={MoreInfos} />
       <Stack.Screen name="OverView Case" component={OverView} />
       <Stack.Screen name="UnfallMeldung" component={UnfallMeldung} />
-      <Stack.Screen name="Unfall" component={Unfall} />
+      <Stack.Screen
+        name="MoreInfosUnfallMeldung"
+        component={MoreInfosUnfallMeldung}
+      />
     </Stack.Navigator>
   );
 }

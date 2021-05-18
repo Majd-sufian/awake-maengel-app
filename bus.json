@@ -1,27 +1,5 @@
 {
   "id": "1",
-  "all_systems": [
-    "Heizung",
-    "Bremse",
-    "Karosserie",
-    "Beleuchtung",
-    "abgasanlage",
-    "Toilette",
-    "Fahrersitz",
-    "Gurte",
-    "Innenraum",
-    "Motor",
-    "Innen-und Außenzielanzeigen Monitore",
-    "Funk und Sprechanlagen",
-    "CoPilot - Entwerter - Fahrscheinautomat",
-    "Flüssigkeitsstände",
-    "Folien - Aufkleber - Werbung",
-    "Bodenbelag - Teppich",
-    "Anbauteile",
-    "Türen",
-    "Reifen",
-    "Kameras"
-  ],
   "systems": {
     "Heizung": {
       "options": [
@@ -32,53 +10,53 @@
         "Gelbmeldung Heizungssteuerung",
         "Rotmeldung Heizungssteuerung"
       ],
-      "sub": false
+      "positions": []
     },
     "Bremse": {
       "options": [
         "Gelbmeldung ABS/ASR/Bremssteuerung",
         "Rotmeldung ABS/ASR/Bremssteuerung"
       ],
-      "sub": false
+      "positions": []
     },
     "Karosserie": {
       "options": [],
-      "sub": false
+      "positions": []
     },
     "Beleuchtung": {
       "options": ["Außenbeleuchtung", "Innenbeleuchtung"],
-      "sub": false
+      "positions": []
     },
     "abgasanlage": {
       "options": [
         "Gelbmeldung Abgasanlage gestört",
         "RotmeldungAbgasanlage gestört"
       ],
-      "sub": false
+      "positions": []
     },
     "Toilette": {
       "options": [],
-      "sub": false
+      "positions": []
     },
     "Fahrersitz": {
       "options": [],
-      "sub": false
+      "positions": []
     },
     "Gurte": {
       "options": [],
-      "sub": false
+      "positions": []
     },
     "Innenraum": {
       "options": [],
-      "sub": false
+      "positions": []
     },
     "Motor": {
       "options": [],
-      "sub": false
+      "positions": []
     },
     "Innen-und Außenzielanzeigen Monitore": {
       "options": ["defekt", "fehlen"],
-      "sub": false
+      "positions": []
     },
     "Funk und Sprechanlagen": {
       "options": [
@@ -87,23 +65,23 @@
         "Wlan Router defek",
         "Steckdosen defek"
       ],
-      "sub": false
+      "positions": []
     },
     "CoPilot - Entwerter - Fahrscheinautomat": {
       "optoins": ["defekt", "fehlt"],
-      "sub": false
+      "positions": []
     },
     "Flüssigkeitsstände": {
       "options": [],
-      "sub": false
+      "positions": []
     },
     "Folien - Aufkleber - Werbung": {
       "options": ["lose", "Unvollständig", "fehlt"],
-      "sub": false
+      "positions": []
     },
     "Bodenbelag - Teppich": {
       "options": [],
-      "sub": false
+      "positions": []
     },
     "Anbauteile": {
       "options": [
@@ -112,7 +90,7 @@
         "Seitenklappen",
         "yerkleidungen"
       ],
-      "sub": false
+      "positions": []
     },
     "Türen": {
       "options": [
@@ -128,8 +106,7 @@
         "Position der Tür 3",
         "Position der Tür 4",
         "Position der Tür 5"
-      ],
-      "sub": true
+      ]
     },
     "Reifen": {
       "options": ["Profil", "Luftdruck", "Beschädigung"],
@@ -137,34 +114,11 @@
         "Position des Reifens Achse 1",
         "Position des Reifens Achse 2",
         "Position des Reifens Achse 3"
-      ],
-      "sub": true
+      ]
     },
     "Kameras": {
       "options": ["defekt", "verstellt", "fehlt"],
-      "positions": ["Innen", "Außen"],
-      "sub": true
+      "positions": ["Innen", "Außen"]
     }
   }
 }
-
-// useEffect(() => {
-//   axios.put(
-//     "https://5brtqhkajh.execute-api.eu-central-1.amazonaws.com/dev/items",
-//     {
-//       id: "15",
-//       busNumber: "20",
-//       busSystems: {
-//         system: "Heizung",
-//         option: "arbeitet nicht mehr",
-//       },
-//       description: "Lerom whatever",
-//       done: false,
-//       driver: {
-//         name: "Majd Sufyan",
-//         email: "majd@gmail.com",
-//       },
-//       location: "Am Oberwiesedfeld.17",
-//     }
-//   );
-// }, []);

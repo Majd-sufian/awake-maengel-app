@@ -27,7 +27,7 @@ export default function MyCases({ navigation }) {
 
   useEffect(() => {
     axios
-      .get("https://5brtqhkajh.execute-api.eu-central-1.amazonaws.com/items")
+      .get("https://cok1u6cvtf.execute-api.eu-central-1.amazonaws.com/items")
       .then((resp) => {
         setUserCases(
           resp.data.Items.filter((x) => x.driver.email == "majd2@gmail.com")
@@ -44,7 +44,7 @@ export default function MyCases({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {userCases.length > 0 ? (
+      {userCases?.length > 0 ? (
         userCases.map((singleCase, index) => (
           <View
             key={index}
@@ -52,7 +52,7 @@ export default function MyCases({ navigation }) {
             onClick={() => openSingleCase(singleCase, index)}
           >
             <CustomCase
-              index={index}
+              caseNumber={singleCase.caseNumber}
               done={singleCase.done}
               description={singleCase.description}
               busNumber={singleCase.busNumber}

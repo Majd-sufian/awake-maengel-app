@@ -4,15 +4,21 @@ import CustomButton from "../components/CustomButton";
 
 export default function UnfallMeldung({ navigation }) {
   const busSystems = ["Vorfindeschaden", "Eigenschaden", "Fremdschaden"];
+
+  function moreInfoUnfall(unfall) {
+    navigation.navigate("MoreInfosUnfallMeldung", {
+      unfall: unfall,
+    });
+  }
   return (
     <View style={styles.container}>
-      {busSystems.map((system, index) => (
+      {busSystems.map((unfall, index) => (
         <View
           activeOpacity={1}
           key={index}
-          onClick={() => navigation.navigate("Unfall")}
+          onClick={() => moreInfoUnfall(unfall)}
         >
-          <CustomButton title={system} color="red" />
+          <CustomButton title={unfall} color="red" />
         </View>
       ))}
     </View>

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View } from "react-native";
-import { useStateValue } from "../store/StateProvider";
+import { StyleSheet, View, Text } from "react-native";
 import CustomButton from "../components/CustomButton";
-import { ScrollView } from "react-native-gesture-handler";
 
-export default function Systems({ navigation }) {
-  const [{ busNumber }, dispatch] = useStateValue();
+export default function Systems({ navigation, route }) {
+  const { busNumber } = route.params;
   const [busSystems, setBusSystems] = useState([]);
   const [busData, setBusData] = useState([]);
+  const [errors, setErrors] = useState(0);
 
   async function fetchDataJSON() {
     const response = await fetch(
@@ -15,26 +14,41 @@ export default function Systems({ navigation }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        setBusSystems(data.Item.all_systems);
-        setBusData(data.Item.systems);
+        if (data.Item) {
+          const keys = Object.keys(data.Item.systems);
+          setBusSystems(keys);
+          setBusData(data.Item.systems);
+        } else {
+          setErrors(1);
+        }
       });
   }
 
   const addBusSystem = (e) => {
     const selectedSystem = e.target.innerText;
-    const sub = busData[selectedSystem].sub;
-    const system = busData[selectedSystem];
+    const systemOptions = busData[selectedSystem]["options"];
 
-    dispatch({
-      type: "ADD_Bus_System",
-      system: system,
-      selectedSystem: selectedSystem,
-    });
-
-    if (sub) {
-      navigation.navigate("Positionen");
+    if (systemOptions.length == 0) {
+      navigation.navigate("Add More Infos", {
+        busNumber: busNumber,
+        busSystem: selectedSystem,
+      });
     } else {
-      navigation.navigate("Optionen");
+      const systemPositions = busData[selectedSystem]["positions"];
+      if (systemPositions.length == 0) {
+        navigation.navigate("Optionen", {
+          busNumber: busNumber,
+          busSystem: selectedSystem,
+          systemOptions: systemOptions,
+        });
+      } else {
+        navigation.navigate("Positionen", {
+          busNumber: busNumber,
+          busSystem: selectedSystem,
+          systemPositions: systemPositions,
+          systemOptions: systemOptions,
+        });
+      }
     }
   };
 
@@ -44,8 +58,8 @@ export default function Systems({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
-        {busSystems.map((system, index) => (
+      {errors == 0 ? (
+        busSystems.map((system, index) => (
           <View activeOpacity={1} key={index} onClick={addBusSystem}>
             <CustomButton
               onClick={addBusSystem}
@@ -53,8 +67,14 @@ export default function Systems({ navigation }) {
               color="#7eca9c"
             />
           </View>
-        ))}
-      </ScrollView>
+        ))
+      ) : (
+        <View>
+          <Text style={{ fontSize: 25, textAlign: "center", margin: 50 }}>
+            Es gibt keinen Bus mit dieser Nummer
+          </Text>
+        </View>
+      )}
     </View>
   );
 }
@@ -66,4 +86,5 @@ const styles = StyleSheet.create({
     display: "flex",
     marginBottom: 20,
   },
+  noSystems: {},
 });
