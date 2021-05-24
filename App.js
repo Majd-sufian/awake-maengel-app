@@ -12,8 +12,14 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={Routes} />
-        <Drawer.Screen name="Meine Cases" component={DriverCasesRoutes} />
-        <Drawer.Screen name="Unfälle" component={DriverUnfallRoutes} />
+        <Drawer.Screen
+          name="Meine Technikmeldung"
+          component={DriverCasesRoutes}
+        />
+        <Drawer.Screen
+          name="Meine Unfallmeldung"
+          component={DriverUnfallRoutes}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );

@@ -62,7 +62,7 @@ export default function MyCases({ navigation }) {
           </View>
         ))
       ) : (
-        <Text style={styles.text}>You Don't have any cases yet!</Text>
+        <Text style={styles.text}>Sie haben noch keine Technikmeldung!</Text>
       )}
     </View>
   );

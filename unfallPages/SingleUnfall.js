@@ -33,6 +33,7 @@ export default function SingleUnfall({ navigation, route }) {
         <></>
       )}
       <Text style={styles.text}>Bus number: {item.busNumber}</Text>
+      <Text style={styles.text}>{item.unfall}</Text>
       <Text style={styles.text}>Straße: Am Oberwiesendfeld 17</Text>
       <Text style={styles.text}>Stadt: Munich</Text>
       <Text style={styles.text}>Staat: Bayern</Text>

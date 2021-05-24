@@ -42,6 +42,8 @@ export default function Unfälle({ navigation }) {
     // });
   };
 
+  console.log(unfaelle);
+
   return (
     <View style={styles.container}>
       {unfaelle?.length > 0 ? (
@@ -55,11 +57,12 @@ export default function Unfälle({ navigation }) {
               unfallNumber={singleUnfall.unfallNumber}
               busNumber={singleUnfall.busNumber}
               timestamp={singleUnfall.timestamp}
+              unfall={singleUnfall.unfall}
             />
           </View>
         ))
       ) : (
-        <Text style={styles.text}>You Don't have any cases yet!</Text>
+        <Text style={styles.text}>Sie haben noch keine Unfallmeldung!</Text>
       )}
     </View>
   );

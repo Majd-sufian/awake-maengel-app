@@ -14,6 +14,8 @@ export default function OverView({ navigation, route }) {
     description,
   } = route.params;
 
+  console.log(location);
+
   const [casesCount, setCasesCount] = useState();
 
   useEffect(() => {
@@ -33,25 +35,27 @@ export default function OverView({ navigation, route }) {
         timestamp: Math.round(new Date().getTime() / 1000),
         caseNumber: casesCount + 1,
         busSystems: {
-          system: selectedSystem,
-          position: systemPosition,
-          option: systemOption,
+          system: busSystem,
+          position: position,
+          option: option,
         },
-        description: caseDescription,
+        company: "AutobusOberbayern",
+        description: description,
         done: false,
         driver: {
           name: "Majd Sufyan",
           email: "majd2@gmail.com",
         },
         location: {
-          lan: busLocation.lat,
-          long: busLocation.long,
+          lan: location.coords.latitude,
+          long: location.coords.longitude,
         },
-        fotos:
+        fotos: [
           "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGJ1c3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
+        ],
       }
     );
-    alert("Your case was successfully send");
+    alert("Die Tecknikmeldung wurde erfolgreich gesendet");
     navigation.navigate("Main");
   };
 
@@ -92,8 +96,8 @@ export default function OverView({ navigation, route }) {
         />
       </View>
       <View style={styles.buttonsContainer}>
-        <Button color="red" title="Cancel" onPress={CancelCase} />
-        <Button title="submit" onPress={sendCase} />
+        <Button color="red" title="stornieren" onPress={CancelCase} />
+        <Button title="senden" onPress={sendCase} />
       </View>
     </View>
   );

@@ -1,3 +1,6 @@
-2021/05/13-21:30:24.530 1844 Reusing MANIFEST /home/majdsufian/Desktop/awake/mobile/maengelapp/~/chromeTemp/Default/Local Storage/leveldb/MANIFEST-000001
-2021/05/13-21:30:24.530 1844 Recovering log #31
-2021/05/13-21:30:24.531 1844 Reusing old log /home/majdsufian/Desktop/awake/mobile/maengelapp/~/chromeTemp/Default/Local Storage/leveldb/000031.log 
+2021/05/14-10:14:30.319 15dc Reusing MANIFEST /home/majdsufian/Desktop/awake/mobile/maengelapp/~/chromeTemp/Default/Local Storage/leveldb/MANIFEST-000001
+2021/05/14-10:14:30.319 15dc Recovering log #31
+2021/05/14-10:14:30.320 15dc Reusing old log /home/majdsufian/Desktop/awake/mobile/maengelapp/~/chromeTemp/Default/Local Storage/leveldb/000031.log 
+2021/05/14-10:15:30.345 19a8 Level-0 table #36: started
+2021/05/14-10:15:30.353 19a8 Level-0 table #36: 10918 bytes OK
+2021/05/14-10:15:30.361 19a8 Delete type=0 #31

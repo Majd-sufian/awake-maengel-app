@@ -3,7 +3,12 @@ import { StyleSheet, Text, View } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 
-export default function CustomUnfall({ unfallNumber, busNumber, timestamp }) {
+export default function CustomUnfall({
+  unfallNumber,
+  busNumber,
+  timestamp,
+  unfall,
+}) {
   const dateObject = new Date(timestamp * 1000);
 
   const humanDateFormat = dateObject.toLocaleString();
@@ -17,7 +22,7 @@ export default function CustomUnfall({ unfallNumber, busNumber, timestamp }) {
         }}
       >
         <Text style={{ fontSize: 25, marginBottom: 10 }}>
-          {unfallNumber} - Bus {busNumber}
+          {unfallNumber} - Bus {busNumber} - {unfall}
         </Text>
       </View>
       <Text style={{ fontSize: 16 }}>Datum: {humanDateFormat}</Text>

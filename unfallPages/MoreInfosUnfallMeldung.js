@@ -30,6 +30,7 @@ export default function MoreInfosUnfallMeldung({ navigation, route }) {
           name: "Majd Sufyan",
           email: "majd2@gmail.com",
         },
+        company: "AutobusOberbayern",
         location: {
           street: "Am OberWiesendFeld",
           city: "Munich",
@@ -40,7 +41,7 @@ export default function MoreInfosUnfallMeldung({ navigation, route }) {
         ],
       }
     );
-    alert("Your Unfall was successfully send");
+    alert("Der Unfall wurde erfolgreich gesendet");
     navigation.navigate("Main");
   };
 
@@ -115,7 +116,7 @@ export default function MoreInfosUnfallMeldung({ navigation, route }) {
             { backgroundColor: "grey", textAlign: "center" },
           ]}
         >
-          <Text style={styles.text}>Submit</Text>
+          <Text style={styles.text}>Senden</Text>
         </View>
       ) : (
         <View
@@ -125,7 +126,7 @@ export default function MoreInfosUnfallMeldung({ navigation, route }) {
             { backgroundColor: "red", textAlign: "center" },
           ]}
         >
-          <Text style={styles.text}>Submit</Text>
+          <Text style={styles.text}>Senden</Text>
         </View>
       )}
     </View>
